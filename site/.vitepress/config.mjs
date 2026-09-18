@@ -17,9 +17,16 @@ export default defineConfig({
     sidebar: [
       {
         text: 'Weeks',
+        // Explicit rather than auto-globbed: an unfinished week cannot appear
+        // in the nav just because its file exists.
         items: [
-          // Added as each week is published. Keeping this explicit rather than
-          // auto-globbing means an unfinished week cannot appear by accident.
+          {
+            text: 'Week 3 — Mongo, Integration Testing',
+            items: [
+              { text: 'Prep: install MongoDB',
+                link: '/weeks/week03-mongo-integration/prep' },
+            ],
+          },
         ],
       },
     ],
