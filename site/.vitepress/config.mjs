@@ -13,24 +13,16 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   themeConfig: {
-    nav: [{ text: 'Weeks', link: '/weeks/' }],
-    sidebar: [
-      {
-        text: 'Weeks',
-        // Explicit rather than auto-globbed: an unfinished week cannot appear
-        // in the nav just because its file exists.
-        items: [
-          {
-            text: 'Week 3 — Mongo, Integration Testing',
-            items: [
-              { text: 'Prep: install MongoDB',
-                link: '/weeks/week03-mongo-integration/prep' },
-            ],
-          },
-        ],
-      },
-    ],
+    // No sidebar, and no search.
+    //
+    // site/index.md IS the navigation. It indexes everything in one flat list,
+    // including the weeks whose notes live in Confluence — which a filesystem
+    // sidebar could never show. A sidebar alongside it would be a second,
+    // partial answer to the same question, and would drift from the first.
+    //
+    // Adding a week or an assignment therefore means editing site/index.md and
+    // nothing else. See WORKFLOW.md.
+    nav: [],
     outline: [2, 3],
-    search: { provider: 'local' },
   },
 });

@@ -11,12 +11,24 @@ Lecture notes appear here as each week is prepared. Code examples and Now You
 Try solutions live in [`code/`](https://github.com/SI679-public/SI679-public.github.io/tree/main/code)
 in this site's repository.
 
-## Weeks
+## Lecture Notes & Prep Instructions
+### Week 1 - Intro | Express | Postman
+- [Lecture Notes](https://umich-mia.atlassian.net/wiki/external/MmNjZTg1NDkyNDQzNDM1MDg1OTI2NTRmZmE3MzEzMTA) (in Confluence)
 
-_Notes are published the day before each class._
+### Week 2 - Routing | Middlware | Supertest
+- [Lecture Notes](https://umich-mia.atlassian.net/wiki/external/YmI3NWJkMDkzOGJmNDMyZjkyYzdlZWYwYTQ4MDU4Y2U) (in Confluence)
+
+### Week 3 - MongoDB | Vitest
+- [Prep: install MongoDB](/weeks/week03-mongo-integration/prep)
+
+## Assignments
+
+### HW1 - SliceDrop: Menu and Orders API
+- [Instructions](https://umich-mia.atlassian.net/wiki/external/ZDA2ZmE2NTlmOTQ0NDQzMDhjMDA3YmIyNmJiM2YyMDk) (Accept assignment in Canvas or Classroom 50)
 
 ## Elsewhere
 
-- **Assignments and grades** — Canvas
-- **Assignment repos** — Classroom 50
-- **Questions** — the course Slack channel
+- [Syllabus](https://docs.google.com/document/d/1T0ZgYkgAXwmbRgwLuOJQxT1WGgHZ_tV8t1ThBQc-h38/edit?usp=sharing) - Overview & policies
+- [Canvas](https://umich.instructure.com/courses/860928) - The central hub
+- [Classroom 50](https://classroom50.org/) - Assignment repos
+- [Slack](https://um-fa26-si679.slack.com/) - Questions & Discussion
