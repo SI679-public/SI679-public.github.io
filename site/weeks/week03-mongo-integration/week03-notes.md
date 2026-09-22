@@ -83,7 +83,7 @@ You do not need to create any documents yet.
 
 ### Start with the Starter
 
-For our code-along today we'll use a starter repo that you'll get by [accepting the Week 3 NYT assignment](https://classroom50.org/SI679-Classroom-F26/si-679-f-26/assignments/week03-nyt/accept?k=mjt5rszh). Clone the resulting repo and run `npm install`.
+For our code-along today we'll use a starter repo that you'll get by [accepting the Week 3 NYT assignment](https://classroom50.org/SI679-Classroom-F26/si-679-f-26/assignments/week03-nyt/accept?k=mjt5rszh). Clone the resulting repo and run `npm install`. FYI there is an autograder test that should always pass, so you just need to push at least one commit before 6pm to get credit for today's NYT.
 
 Note that all of today's code was tested using node version 24.21.0. Likely everything will work fine with anything close to this (say, 22+?), but if you have something really old (say, <20?), you should upgrade. If you're not sure how to do that, talk to José.
 
@@ -422,6 +422,11 @@ Each of these is a small variation on a function we wrote above. Verify each one
 
 Lecture code with Now You Try solution can be found at https://github.com/SI679-public/SI679-public.github.io/tree/main/code/week03-mongo-integration/week03-nyt-solution. Look at the bottom of db-explore.ts for the NYT #1 solutions.
 
+## Announcements
+
+- HW 1 was due last night. Hopefully that is not news to you.
+- (Almost) all assignments are now set up on Canvas with release dates and due dates, so you can get a sense of what the semester schedule looks like from that perspective. If you see something that looks fishy let me know. It's very easy to make mistakes on Canvas.
+
 ## Using Mongo with Express
 
 In the examples above, we hard-coded all of the operations to get familiar with Mongo. But of course, that’s not how we would build an app. Let’s start to look at how we might use Express and Mongo to build a database-backed API that will support basic CRUD operations.
@@ -447,6 +452,8 @@ is
 ```ts
   export type ProductUpdate = Partial<Product>;
 ```
+
+which does the same thing - makes all of the fields in `Product` optional. `Partial<>` is an example of a [TypeScript Utility Type](https://www.typescriptlang.org/docs/handbook/utility-types.html), of which there are several. We won't expect you to use them and generally won't use them in lectures or HW starters (unless it would be really painful to avoid them), but you might see them in HW solutions and you will definitely see them if you go deeper into TypeScript or look for examples online.
 
 Then add connect() and disconnect(). Note that `connect()` takes the `uri` and `dbName` as arguments--this also supports testing, since we'll use different URIs (and probably dbs) for testing and deployment.
 
