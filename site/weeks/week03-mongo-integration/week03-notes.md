@@ -83,10 +83,9 @@ You do not need to create any documents yet.
 
 ### Start with the Starter
 
-For our code-along today we'll use a starter repo that you'll get by accepting the Week 3 NYT assignment. Clone the resulting repo and run `npm install`.
+For our code-along today we'll use a starter repo that you'll get by [accepting the Week 3 NYT assignment](https://classroom50.org/SI679-Classroom-F26/si-679-f-26/assignments/week03-nyt/accept?k=mjt5rszh). Clone the resulting repo and run `npm install`.
 
-After `npm install`, everything we need is installed, `mongodb` included, and there is a script ready for this part of the lecture. Create an empty file,
-`src/db-explore.ts`, then start it:
+After `npm install`, everything we need is installed, the node `mongodb` package included, and there is a run script ready for this part of the lecture. Create an empty file, `src/db-explore.ts`, then start it:
 
 ```bash
 npm run explore
