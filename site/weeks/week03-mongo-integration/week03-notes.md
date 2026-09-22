@@ -85,6 +85,8 @@ You do not need to create any documents yet.
 
 For our code-along today we'll use a starter repo that you'll get by [accepting the Week 3 NYT assignment](https://classroom50.org/SI679-Classroom-F26/si-679-f-26/assignments/week03-nyt/accept?k=mjt5rszh). Clone the resulting repo and run `npm install`.
 
+Note that all of today's code was tested using node version 24.21.0. Likely everything will work fine with anything close to this (say, 22+?), but if you have something really old (say, <20?), you should upgrade. If you're not sure how to do that, talk to José.
+
 After `npm install`, everything we need is installed, the node `mongodb` package included, and there is a run script ready for this part of the lecture. Create an empty file, `src/db-explore.ts`, then start it:
 
 ```bash
@@ -241,7 +243,7 @@ const findOneTest = async () => {
 };
 ```
 
-Try it out!
+Try it out! Note here that if more than one Document matches the query, only the first match (whatever mongo considers that to be) will be returned by `findOne()`.
 
 ```ts
 const main = async () => {
@@ -342,6 +344,8 @@ To update a document, you need to specify a query *and* an update operation. The
 
 <<< ../../../code/week03-mongo-integration/week03-lecture/src/db-explore.ts#updateOneTest{ts}
 
+Note that for update and delete operations (coming shortly), you would almost never want to use a query like `{ name: 'Duct Tape' }` because it could match several documents and it would update/delete them all. We are only doing it this way as a lecture example to illustrate how queries work together with update (and, soon, delete) operations.
+
 Try it.
 
 ```ts
@@ -427,6 +431,22 @@ First, we will create a set of more general functions for managing the `products
 First we import what we need from `mongodb` and define our types. Note that `Product` and `ProductUpdate` are the same, except in the latter all the fields are optional.
 
 <<< ../../../code/week03-mongo-integration/week03-lecture/src/db.ts#types{ts}
+
+An alternative to
+
+```ts
+  export interface ProductUpdate {
+    name?: string;
+    price?: number;
+    quantity?: number;
+  }
+```
+
+is
+
+```ts
+  export type ProductUpdate = Partial<Product>;
+```
 
 Then add connect() and disconnect(). Note that `connect()` takes the `uri` and `dbName` as arguments--this also supports testing, since we'll use different URIs (and probably dbs) for testing and deployment.
 
