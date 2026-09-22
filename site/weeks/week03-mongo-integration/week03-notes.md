@@ -441,6 +441,8 @@ Lecture code with Now You Try solution can be found at https://github.com/SI679-
 
 In the examples above, we hard-coded all of the operations to get familiar with Mongo. But of course, that’s not how we would build an app. Let’s start to look at how we might use Express and Mongo to build a database-backed API that will support basic CRUD operations.
 
+### Create the DB layer
+
 First, we will create a set of more general functions for managing the `products` collection. Create the file `db.ts` in your `src/` directory with the contents we will build now, step by step:
 
 First we import what we need from `mongodb` and define our types. Note that `Product` and `ProductUpdate` are the same, except in the latter all the fields are optional.
@@ -481,15 +483,19 @@ Finally, a `_clearProducts()` helper for testing. We'll see how this is used a b
 
 <<< ../../../code/week03-mongo-integration/week03-lecture/src/db.ts#clear{ts}
 
+### Add the router
+
 On top of those database functions, we will layer a router that provides access to the key CRUD operations (CRUD stands for "Create, Read, Update, Delete" as you likely know already). Put this code in `src/product-router.ts`.
 
-Now we build the routes, starting with the frontmatter...
+Start with the frontmatter...
 
 <<< ../../../code/week03-mongo-integration/week03-lecture/src/product-router.ts#setup{ts}
 
 And then our first route...
 
 <<< ../../../code/week03-mongo-integration/week03-lecture/src/product-router.ts#getAll{ts}
+
+### Wire up the router, app, and server
 
 To see this in action, we need to wire the route into the app
 
@@ -498,6 +504,8 @@ To see this in action, we need to wire the route into the app
 And wire the app into the server. Note that we connect the DB before we start the server. Why might that be? Note also that we do NOT connect to the db in app.ts, and this, again, is for testability. We will deal with db connections differently for testing, but we want everything else in the app to work the same.
 
 <<< ../../../code/week03-mongo-integration/week03-lecture/src/index.ts{ts}
+
+### More routes and testing with Postman
 
 Now we test. In Postman, create a GET request for /products, which should return all products. Likely this is an empty array, but if you have stuff in your DB there might be something there.
 
@@ -529,7 +537,7 @@ And finally, implement PATCH and DELETE.  We're now CRUD complete!
 
 <<< ../../../code/week03-mongo-integration/week03-lecture/src/product-router.ts#patchDelete{ts}
 
-## Testing the Routes
+## Testing the Routes with Vitest and Supertest
 
 Now we will ditch Postman and turn to `vitest` with `supertest` to automate our testing. We'll start by testing against the live MongoDB, but quickly shift to using MongoMemoryServer which gives us more control over our tests and also keeps our test data from junking up our database. Keeping junk out of the database is obviously pretty important once you start dealing with real production data.
 
