@@ -115,6 +115,8 @@ import type { Db, Document } from 'mongodb';
 
 <<< ../../../code/week03-mongo-integration/week03-lecture/src/db-explore.ts#connect{ts}
 
+Create a `main()` function at the bottom then call it.
+
 ```ts
 const main = async () => {
   await connect();
