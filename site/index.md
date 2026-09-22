@@ -20,6 +20,7 @@ in this site's repository.
 
 ### Week 3 - MongoDB | Vitest
 - [Prep: install MongoDB](/weeks/week03-mongo-integration/prep)
+- [Lecture Notes](/weeks/week03-mongo-integration/week03-notes)
 
 ## Assignments
 

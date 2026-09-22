@@ -1,0 +1,39 @@
+{
+  "name": "week03-starter",
+  "version": "1.0.0",
+  "description": "SI 679 week 3 — MongoDB and Vitest",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "explore": "tsx watch src/db-explore.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongodb": "^7.6.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.20.4",
+    "@types/supertest": "^7.2.1",
+    "mongodb-memory-server": "^11.2.0",
+    "supertest": "^7.2.2",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  },
+  "allowScripts": {
+    "esbuild": false,
+    "fsevents": false,
+    "mongodb-memory-server": false
+  },
+  "config": {
+    "mongodbMemoryServer": {
+      "disablePostinstall": "1"
+    }
+  }
+}
