@@ -4,6 +4,14 @@
 
 Hopefully you did this already. If not, head over to the [Week 3 prep page](/weeks/week03-mongo-integration/prep) and get going!
 
+## Today's Goals
+
+- Understand what NoSQL and Mongo are all about
+- Get started working with Mongo through node and TypeScript
+- Connect Mongo to Express
+- Work with `expect()` and matchers in Vitest
+- Use Supertest with MongoMemoryServer to test a mongo-backed HTTP API
+
 ## What is Mongo?
 
 - Document-oriented NoSQL DB
