@@ -75,8 +75,8 @@ Customer
 ```json
 {
   "id": "ABC", // string
-  "firstName": "ABC", // string
-  "lastName": "ABC", // string
+  "firstName": "John", // string
+  "lastName": "Doe", // string
   "zipCode": "11111" // string of digits
 }
 ```
@@ -86,11 +86,11 @@ Product
 
 ```json
 {
-  "id": "ABC", // string
-  "modelName": "ABC", // string
-  "modelNumber": "ABC", // string
-  "manufacturer": "ABC", // string
-  "color": "ABC", // string
+  "id": "XYZ", // string
+  "modelName": "Gizmo", // string
+  "modelNumber": "v3", // string
+  "manufacturer": "Acme", // string
+  "color": "teal", // string
   "price": 11.22, // number
   "quantity": 123 // number
 }
@@ -101,16 +101,17 @@ Order
 
 ```json
 {
-  "id": "ABC", // string
+  "id": "KLM", // string
   "customerId": "ABC", // string
   "status": "started" | "submitted" | "fulfilled" | "cancelled", // string/enum
   "items": { // object
-    "ABC" : { // productId, string
+    "XYZ" : { // productId, string
       "quantity": 111 // number
     }
   }
 }
 ```
+
 :::
 
 #### #3 - Lay Out Endpoints
