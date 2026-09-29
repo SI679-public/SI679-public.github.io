@@ -12,19 +12,28 @@ Try solutions live in [`code/`](https://github.com/SI679-public/SI679-public.git
 in this site's repository.
 
 ## Lecture Notes & Prep Instructions
+
 ### Week 1 - Intro | Express | Postman
+
 - [Lecture Notes](https://umich-mia.atlassian.net/wiki/external/MmNjZTg1NDkyNDQzNDM1MDg1OTI2NTRmZmE3MzEzMTA) (in Confluence)
 
 ### Week 2 - Routing | Middlware | Supertest
+
 - [Lecture Notes](https://umich-mia.atlassian.net/wiki/external/YmI3NWJkMDkzOGJmNDMyZjkyYzdlZWYwYTQ4MDU4Y2U) (in Confluence)
 
 ### Week 3 - MongoDB | Vitest
+
 - [Prep: install MongoDB](/weeks/week03-mongo-integration/prep)
 - [Lecture Notes](/weeks/week03-mongo-integration/week03-notes)
+
+### Week 4 - REST | Data Modeling | Supertest
+
+- [Lecture Notes](/weeks/week04-rest/week04-notes)
 
 ## Assignments
 
 ### HW1 - SliceDrop: Menu and Orders API
+
 - [Instructions](https://umich-mia.atlassian.net/wiki/external/ZDA2ZmE2NTlmOTQ0NDQzMDhjMDA3YmIyNmJiM2YyMDk) (Accept assignment in Canvas or Classroom 50)
 
 ## Elsewhere

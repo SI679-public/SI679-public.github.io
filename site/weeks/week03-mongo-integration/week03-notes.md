@@ -573,6 +573,14 @@ We could solve this a few different ways, starting with calling `_clearProducts(
 
 ### MongoMemoryServer
 
+::: tip We picked this up in week 4
+We ran out of time before reaching this in class. Rather than sending you back
+here, the material from this point on is taught in the
+[week 4 notes](/weeks/week04-rest/week04-notes#test-the-routes-with-supertest),
+against the app we build there. This page stays as reference.
+:::
+
+
 MongoMemoryServer is a testing package that looks, smells, and feels just like a Mongo DB to your code. And technically it is one, but it writes all its data to a temp file that it deletes after every run. It spins up for testing and shuts down when testing is done, leaving no trace that it was ever there.
 
 When it spins up, it exposes a URI just like a real mongo DB (similar to `mongodb://127.0.0.1:27017` but, for obvious reasons, different), which totally fools the node `mongodb` package into thinking there's a real database to write to and read from.

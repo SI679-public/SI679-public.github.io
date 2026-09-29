@@ -1,0 +1,14 @@
+[
+  {
+    "_id": { "$oid": "68c97e1f66193b427809baa8" },
+    "firstName": "John",
+    "lastName": "Doe",
+    "zipCode": "48104"
+  },
+  {
+    "_id": { "$oid": "68c97e1f66193b427809baa9" },
+    "firstName": "Jean",
+    "lastName": "Deaux",
+    "zipCode": "01234"
+  }
+]
