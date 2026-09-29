@@ -80,6 +80,7 @@ Customer
   "zipCode": "11111" // string of digits
 }
 ```
+
 :::
 
 Product
@@ -199,7 +200,7 @@ If you see something like:
 ... it's not running. Fire up a terminal you don't mind having tied up and run
 
 ```bash
-$ mongod --dbpath ~/data/mdata
+mongod --dbpath ~/data/mdata
 ```
 
 or similar (depending on platform and where you created the mongo data folder).
@@ -538,7 +539,7 @@ your own. Each piece is a small variation on something already in front of
 you:
 
 | Layer | What to add |
-|---|---|
+| --- | --- |
 | `db` | find one document in a collection by its id |
 | `models` | nothing — `productFromDocument()` already does this job |
 | `services` | return one `Product` for a given id |
@@ -593,8 +594,7 @@ delete return? There is no single right answer, but valid choices include `200` 
 Check it the same way. Delete one, then `GET /products` should be one shorter,
 then refresh Compass and agree with yourself.
 
-Lecture code with Now You Try solutions can be found at
-https://github.com/SI679-public/SI679-public.github.io/tree/main/code/week04-rest/week04-nyt-solution.
+Lecture code with Now You Try solutions can be found [on GitHub](https://github.com/SI679-public/SI679-public.github.io/tree/main/code/week04-rest/week04-nyt-solution).
 The routes are built across `src/db/db.ts`, `src/services/product-service.ts`,
 `src/controllers/product-controllers.ts` and `src/routes/product-routes.ts`.
 
@@ -631,8 +631,8 @@ We are going to start with the two requests we built together — `GET /products
 The request and the response are the same as in Postman. Everything around
 them is different:
 
-|  | Postman | Vitest / MongoMemoryServer / supertest |
-|---|---|---|
+| | Postman | Vitest / MongoMemoryServer / supertest |
+| --- | --- | --- |
 | **The server** | a real one, listening on port 6790, started by `npm run dev` | none. The request is handed straight to the `app` object, and no port is involved |
 | **The database** | your real `week4` database — the one Compass is looking at | a throwaway MongoMemoryServer that appears when the run starts and vanishes when it ends |
 | **The data** | whatever you imported, still there tomorrow | whatever the test put there a millisecond ago |
@@ -913,7 +913,6 @@ The first of those is worth a moment. The interesting assertion is about a
 the check and the action are separate calls, and it is a pattern you'll use
 constantly.
 
-Lecture code with Now You Try solutions can be found at
-https://github.com/SI679-public/SI679-public.github.io/tree/main/code/week04-rest/week04-nyt-solution.
+Lecture code with Now You Try solutions can be found [on GitHub](https://github.com/SI679-public/SI679-public.github.io/tree/main/code/week04-rest/week04-nyt-solution).
 The tests are the last two `describe` blocks in
 `src/__tests__/products.test.ts`.
