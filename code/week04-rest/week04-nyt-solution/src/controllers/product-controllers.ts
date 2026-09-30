@@ -18,7 +18,7 @@ const getProduct = async (req: Request, res: Response): Promise<void> => {
 
 const addProduct = async (req: Request, res: Response): Promise<void> => {
   const postData = req.body;
-  const { id } = await productService.add(postData);
+  const id = await productService.add(postData);
   res.status(201).json({ id });
 };
 

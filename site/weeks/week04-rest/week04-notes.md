@@ -14,6 +14,14 @@ title: Week 04 — REST APIs
 We stopped last week just before MongoMemoryServer, and we still need to cover how that's used for testing. They are on this page rather than back on week 3's: the ideas are the same, and they fit even better into the app we are about to build. We will return to these ideas in the 2nd half of today's lecture.
 :::
 
+::: warning After class: the last exercise, and a bug
+The Now You Try at the end of 9/29 changed on the fly and was never written
+down. [The bug in the last exercise](/weeks/week04-rest/post-class-memo)
+states the assignment, and explains the bug it turned up in
+`productService.add()` — which nothing before it had noticed. **The code on
+this page is the corrected version, not what we typed in class.**
+:::
+
 ## REST APIs
 
 We’ve been looking at how to declare routes and implement their handlers, along with middleware, error handling and so forth. Last week we looked at Mongo and started to look at how to hook Express up to Mongo.
@@ -720,7 +728,7 @@ Four functions in there run *around* your tests rather than being tests
 themselves. Week 3 met them in a hurry; here they are properly.
 
 | Hook | Runs | Use it for |
-|---|---|---|
+| --- | --- | --- |
 | `beforeAll` | once, before the first test in the file | expensive setup: starting the database, connecting |
 | `beforeEach` | before **every** test | putting the world into a known state |
 | `afterEach` | after **every** test | undoing something a single test did |

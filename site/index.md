@@ -29,6 +29,7 @@ in this site's repository.
 ### Week 4 - REST | Data Modeling | Supertest
 
 - [Lecture Notes](/weeks/week04-rest/week04-notes)
+- [After class: the last exercise, and a bug](/weeks/week04-rest/post-class-memo)
 
 ## Assignments
 

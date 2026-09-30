@@ -9,8 +9,9 @@ yourself before you look.
 |---|---|
 | **#1** — `GET /products/:id`, with a 404 when the id isn't there | one piece per layer: `getInCollection` in `src/db/db.ts`, `get` in `src/services/product-service.ts`, `getProduct` in `src/controllers/product-controllers.ts`, and the route in `src/routes/product-routes.ts` |
 | **#1 stretch** — `DELETE /products/:id` | `deleteFromCollection`, `remove`, `deleteProduct`, and the route — the same four files |
-| **#2** — supertest tests for `GET /products/:id` | the `describe('GET /products/:id')` block in `src/__tests__/products.test.ts` |
-| **#2 stretch** — tests for `DELETE /products/:id` | the `describe('DELETE /products/:id (stretch)')` block in the same file |
+| **#2 as published** — supertest tests for `GET /products/:id` | the `describe('GET /products/:id')` block in `src/__tests__/products.test.ts` |
+| **#2 as published, stretch** — tests for `DELETE /products/:id` | the `describe('DELETE /products/:id (stretch)')` block in the same file |
+| **#2 as actually assigned** — a test that POST stores a *partial* product correctly | the last `describe` block in the same file, under the note explaining the change |
 
 Every addition is marked with a `// Now You Try` comment, so you can read the
 diff by searching for that.
@@ -31,6 +32,14 @@ And one worth reading for how the tests are built:
   the tests use it to find out what ids the seeded products ended up with,
   rather than hard-coding anything. For the not-found cases, `'a'.repeat(24)`
   is a well-formed Mongo id that is certainly not in the database.
+
+**The in-class Now You Try changed on the fly.** Most of the room hadn't
+finished building `GET /products/:id`, so the assignment became: write a test
+that a partially-specified product survives `POST /products` with the right
+defaults filled in. Mark wrote it alongside the class; it failed, and it was
+right to — it found a real bug in `productService.add()` that students had not
+seen at the time. Both halves of the fix are in this repo, marked with
+comments, and the story is in `MEMO-post-class.md`.
 
 Run the app with `npm run dev`, the tests with `npm test`.
 

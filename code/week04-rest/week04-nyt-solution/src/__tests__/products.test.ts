@@ -101,7 +101,8 @@ describe('POST /products', () => {
   });
 });
 
-// Now You Try #2
+// Now You Try #2 as published (not the version assigned in class —
+// see the note further down).
 describe('GET /products/:id', () => {
   it('returns the product with that id', async () => {
     // GET /products is a route we already trust, so it is a fine way to
@@ -145,5 +146,73 @@ describe('DELETE /products/:id (stretch)', () => {
     const res = await request(app).delete(`/products/${'a'.repeat(24)}`);
 
     expect(res.status).toBe(404);
+  });
+});
+
+// -----------------------------------------------------------------------
+// Now You Try #2, as actually assigned in class on 2026-09-29.
+//
+// The published NYT #2 asked for tests of GET /products/:id. Most of the
+// room hadn't finished that route, so the assignment changed on the fly
+// to this instead: prove that POST /products stores a *partial* product
+// correctly — the fields you send kept, everything else filled in with the
+// defaults from productFromFields().
+//
+// Mark wrote this version alongside the class during the exercise; it failed,
+// and it was right to. The bug is in the code built together earlier in the
+// session. See MEMO-post-class.md in this repo.
+// -----------------------------------------------------------------------
+
+describe('POST /products with only some fields', () => {
+  it('keeps what was sent and fills in the rest', async () => {
+    // Four of the seven fields. No modelNumber, no quantity, no id.
+    const partialProduct = {
+      modelName: 'My Model',
+      manufacturer: 'My Manufacturer',
+      color: 'green',
+      price: 5.5
+    };
+
+    const created = await request(app)
+      .post('/products')
+      .send(partialProduct);
+
+    expect(created.status).toBe(201);
+    const { id } = created.body;
+
+    // Read it back through GET, so we are testing what actually landed in
+    // the database rather than what POST happened to hand back.
+    const all = await request(app).get('/products');
+    const stored = (all.body as Product[]).find((p) => p.id === id);
+
+    expect(stored).toBeDefined();
+
+    // What we sent survived.
+    expect(stored!.modelName).toBe('My Model');
+    expect(stored!.manufacturer).toBe('My Manufacturer');
+    expect(stored!.color).toBe('green');
+    expect(stored!.price).toBe(5.5);
+
+    // What we left out came back as the defaults from productFromFields().
+    // Before the fix these were `undefined`, because the defaults were
+    // applied to the return value instead of to the document.
+    expect(stored!.modelNumber).toBe('');
+    expect(stored!.quantity).toBe(0);
+  });
+
+  it('does not leave a second id in the stored document', async () => {
+    const created = await request(app)
+      .post('/products')
+      .send({ modelName: 'Second Fix' });
+
+    const all = await request(app).get('/products');
+    const stored = all.body.find(
+      (p: Product) => p.id === created.body.id
+    );
+
+    // `id` is a string made from Mongo's `_id`, not the placeholder that
+    // productFromFields() invents. If the service stored its whole return
+    // value, this would be a timestamp like "1790716131668".
+    expect(stored.id).toMatch(/^[0-9a-f]{24}$/);
   });
 });
