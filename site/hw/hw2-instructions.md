@@ -11,7 +11,7 @@ title: "HW2 — SliceDrop: A Real Database, A Real Architecture"
 
 Three things happen to SliceDrop in HW2:
 
-1. **Orders move into MongoDB.** Refactor so orders are no longer saved in memory but instead in the mongodb.  Menu from homework one will be seeded into the db for you. Keep in mind the asynchronous nature of dealing with a database.
+1. **Orders move into MongoDB.** Refactor so data is no longer stored in memory but will be moved into the database for persistence - menu items will be seeded for you but part of the assignment is for orders to now be written to the db. Keep in mind the asynchronous nature of dealing with a database.
 2. **The code gets an architecture.** One folder per layer — routes → controllers → services → db — with each kind of logic in its place, the way the week 4 notes lay out.
 3. **The restaurant grows.** The Phase 2 menu arrives (XL, crusts, premium toppings, desserts), the menu gets full CRUD so staff can manage it, staff can move orders through statuses, and orders get priced. Types will need updating (more below)
 
@@ -137,9 +137,9 @@ Same as HW1: push to `main`; the last push before the deadline is graded.
 
 Total Points: 120
 
-- Autograder: 120 — 20 for `npm run typecheck`, and 25 for each of the four
+- Autograder: 120 — 25 points for passing for each of the four
   test suites (menu, orders, auth, errors). Partial credit within a suite is
-  proportional to the tests you pass.
+  proportional to the tests you pass. 20 for passing `npm run typecheck`.
 
 ## Tips
 
