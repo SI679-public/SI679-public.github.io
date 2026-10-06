@@ -41,6 +41,10 @@ in this site's repository.
 
 - [Instructions](https://umich-mia.atlassian.net/wiki/external/ZDA2ZmE2NTlmOTQ0NDQzMDhjMDA3YmIyNmJiM2YyMDk) (Accept assignment in Canvas or Classroom 50)
 
+### HW2 - SliceDrop: A Real Database, A Real Architecture
+
+- [Instructions](/hw/hw2-instructions) (Accept assignment in Canvas or Classroom 50)
+
 ## Elsewhere
 
 - [Syllabus](https://docs.google.com/document/d/1T0ZgYkgAXwmbRgwLuOJQxT1WGgHZ_tV8t1ThBQc-h38/edit?usp=sharing) - Overview & policies

@@ -44,30 +44,7 @@ src/
 └── index.ts
 ```
 
-This repo contains a completed API for the full set of `/products` endpoints. Most of this is what was written last week, but there are a few new pieces--most notably the PATCH route that we will walk through and then write tests for.
-
-### Some things are named differently
-
-| Week 4 | Now |
-|---|---|
-| `db/db.ts` held connection *and* collection helpers | `db/db.ts` connects; `db/products-repository.ts` reads and writes |
-| `models/product.ts` held types *and* functions | `models/product.ts` holds types only |
-| `product-service.ts`, `product-controllers.ts` | `products-service.ts`, `products-controller.ts` |
-| `routes/product-routes.ts` | `routes/products-router.ts` |
-| `productService.getAll()` | `productsService.getAllProducts()` |
-
-These renames came about for two reasons. First, I realized during the lecture that I was not consistent with how I had named things. The lack of consistency or organizing principles likely contributed to the feeling that many of you had of being lost. Second, it became clear that José and I were a bit out of alignment on not just naming but the logic of the layers. Looking into the differences, I realized that I was off base on a few aspects (and José was right), so I wanted to straighten things out before we get too much farther.
-
-The end result is that today's lecture is going to be your best preparation for HW2 -- for the most part the patterns and conventions you'll see here are what you'll see in the homework.
-
-Here are the key changes from last week:
-
-- significant change how I think about the db and service layers: last week I said that the db layer only speaks Mongo and knows nothing about application concepts like Products, Orders, etc. I learned this is not how it's typically done. Rather, in common frameworks like Ruby on Rails and NestJS, the db layer is structured into "repositories" for each entity, and these repositories are responsible for translating from DB records into "business objects." I said that's what the service layer does, but that's really about *business logic* that operates on those objects. We'll see some examples of what the service layer is for shortly.
-- smaller changes to clean up naming and terminology.
-  - The db layer will name its functions in mongo terms where possible (e.g., "find" and "collection")
-  - The service layer will name its functions using CRUD terminology (e.g., "create," "update"). The one exception is "read" which we will call "get" since "readProduct" sounds weird and nobody does that.
-  - The controller layer will name its functions in HTTP terminology ("get", "post", "patch"). This creates some conflict with the service layer (namely "get" and "delete" which appear in both lexicons), but we're just going to live with that.
-- and finally, we're going to clean up some messiness around singular and plural nouns that was bugging me. The directories representing each layer will be plural nouns (this is the same): routes, controllers, services, ... except db I guess. Within those directories, files will be named `<resource>-<role>.ts`, e.g., products-service.ts, products-controller.ts.
+This repo contains a completed API for the full set of `/products` endpoints. Most of this is what was written last week, but there are a few new pieces--most notably the PATCH route that we will walk through and then write tests for. Also some of the file and functions names are different because I wasn't crazy with some of my choices, and I've cleaned up my thinking about the db and service layers, which is reflected in both naming and how I am thinking about the roles of these layers. The changes will show up as we walk through the layers.
 
 ## Following one request
 
@@ -83,6 +60,10 @@ This is generally the thinnest layer with a very simple job--make sure the corre
 
 **Guarantee:** `PATCH /products/:id` reaches `patchProduct`, and nothing else does.
 
+:::info Names and roles
+No real change here
+:::
+
 ### The controller
 
 In `controllers/products-controller.ts`:
@@ -94,15 +75,23 @@ The job of the controller layer is to actually *handle* the HTTP request by invo
 **Guarantee:** 404 for an id that isn't there, 200 and the updated product
 otherwise.
 
+:::info Names and roles
+Cleaned up singular/plural naming. Folder is "controllers" because it will hold a controller for each route. The files are named \<route\>-controller.ts, so this one is `products-controller.ts`.
+
+Also function names now use HTTP verbs where it's reasonable, since they are effectively handlers for specific endpoint/verb pairs, so we get `getProducts()`, `postProducts()`, etc.
+:::
+
 ### The service
 
 In `services/products-service.ts`:
 
 <<< ../../../code/week05-testing/week05-lecture/src/services/products-service.ts#update{ts}
 
-The service layer lives entirely within the universe of the app. It only knows about application objects (e.g., Products)--nothing about HTTP or Mongo. This is the layer where "business logic" lives. For example, it's the service layer that knows what the business knows and what a human would know, but what HTTP, TypeScript, and Mongo do not know, which is that the quantity of a product in inventory can never be negative, nor can its price. Can a price be exactly zero? Only the business would know whether that makes sense, and whatever decision is made would be captured and enforced by the service layer.
+The service layer lives entirely within the universe of the app (this is a bit different from last week). It only knows about application objects (e.g., Products)--nothing about HTTP or Mongo. This is the layer where "business logic" lives. For example, it's the service layer that knows what the business knows and what a human would know, but what HTTP, TypeScript, and Mongo do not know, which is that the quantity of a product in inventory can never be negative, nor can its price. Can a price be exactly zero? Only the business would know whether that makes sense, and whatever decision is made would be captured and enforced by the service layer.
 
 Note that the service method here (`updateProduct()`) checks if the requested operation is valid *before* applying the change. This is how the service can make sure that invalid data doesn't make it into the database, where it could do all kinds of damage if other operations end up accessing it.
+
+#### A brief digression into error handling
 
 There's another interesting thing going on here. The two validation checks for negative quantity and price both throw a `ValidationError` when they fail. If you look into what a `ValidationError` is (in VS Code you can right-click on it and select "Go to Source Definition" -- you can also look at the imports at the top), you'll see it's something that'd defined within our app and it's just a relabelling of the base JavaScript `Error`. Here it is, in `errors.ts`:
 
@@ -112,11 +101,19 @@ You can then see where all it's being used (in VS Code, right-click and choose "
 
 <<< ../../../code/week05-testing/week05-lecture/src/middleware/error-handler.ts{ts}
 
-Why do it this way?  Well, this gives you a standard way of dealing with errors that occur below the controller layer that should result in different information being sent back to the client. An alternative would be to use a try/catch block in the controller, but you'd have to do that in every controller and include handling code for every error type that could be generated, worry about consistent handling, etc. This is a cleaner approach.
+Why do it this way?  Well, this gives you a standard way of dealing with errors that occur below the controller layer that should result in different information being sent back to the client. An alternative would be to use a try/catch block in the controller, but you'd have to do that in every controller and include handling code for every error type that could be generated, worry about consistent handling, etc. This is one approach that might be cleaner for certain types of error handling, but it's not the only way. You'll see a different approach in HW2 (that's building on the approach from HW1 you already saw).
 
 So anyway, back to what this service method does:
 
 **Guarantee:** quantity never goes negative — and if a change would make it so, nothing is written at all.
+
+:::info Names and roles
+This change is a bit bigger because I did some research on conventions around service and db layers after talking with José. Predictably, José was right and I was wrong. I said that the service layer is what translates from DB concepts to application (or "business") concepts, but it's more common for that to happen at the db layer.
+
+The service layer is more commonly described as living entirely in the universe of the application (for this route, that's Products in and Products out), and as being where the "business logic" lives. So for today and going forward, that's how we're going to talk about the service layer.
+
+In terms of names, I've gone with "CRUD-speak"--so we have `get...()` (because `read...()` just sounds too weird), `create...()`, `update...()`, etc. Note that `update` is also used in the db layer and `delete` is used in both controllers and db repositories. Oh well. Naming is hard.
+:::
 
 ### The repository (a.k.a. the db layer)
 
@@ -136,6 +133,12 @@ This translation function was implemented in the `models` layer last week, but w
 
 **Guarantee:** only the fields that were sent are changed; the rest are left alone. The changed Product is persisted in Mongo.
 
+:::info Names and roles
+Arguably this is the biggest change from last week. I said that the db layer only speaks Mongo and knows nothing about application concepts like Products. It's more conventional, however, to organize the db layer into "repositories" that manage collections of application/business entities and translate from DB objects like `Documents` to application objects like `Products`. This makes it so that DB functions and types (like `Document` but also `ObjectId` and `InsertOneResult`) stay in one layer, which I have to admit is much cleaner than what I presented last week.\
+
+For naming, we stick with Mongo-style names like `find...()`, `insert...()`, `add...()` so the layers above know what we're dealing with.
+:::
+
 ### The model
 
 In `models/product.ts`:
@@ -145,6 +148,10 @@ In `models/product.ts`:
 With translation moving to the db layer, the `model` layer is simplified--it's just about declaring the types used in the application.
 
 **Guarantee:** every layer that manages Products is working from the same definition of what a Product is. Among other things, it ensures that every `Product` has an `id: string` and not an `_id: ObjectId()`.
+
+:::info Names and roles
+The main thing that changed is that translation moved from the models layer to the db/repository layer. Models are just types now.
+:::
 
 ### What each layer guarantees
 
@@ -260,6 +267,17 @@ and then you GET to find out whether the PATCH kept its word.
 `npm test` shows no todos and no failures.
 
 Lecture code with Now You Try solutions can be found [on GitHub](https://github.com/SI679-public/SI679-public.github.io/tree/main/code/week05-testing/week05-nyt-solution).
+
+:::info Announcements
+
+- **HW2 out today** - it mostly covers mongo and REST architecture. I haven't been able to figure out how to have you all write your own tests and assess those in a scalable way. We will expect some degree of test coverage for your final projects, however, so I wouldn't totally check out of this part of the class :smile:.
+- **HW2 is due in *two* weeks** - by popular request. If you want to visit office hours and the times available don't work, reach out. Both José and I are open to trying to find another time.
+- **HW1 solution is delayed** - the original plan was to have HW2 start from a solution to HW1 but once we got into the rearchitecting for REST the similarity with HW1 became too hard to maintain. Some of the things you solved in HW1 are indeed solved in the HW2 starter, but they probably show up differently and in different places, so the mapping isn't easy. We are exploring the best way to release a HW1 solution so that you can compare against your solution. If there are differences it doesn't mean one way is right and the other is wrong--we are happy to chat with you about different approaches and why one might choose this or that.
+- **Next 3 Weeks:**
+  - Week of 10/13 - Authentication and Authorization
+  - Week of 10/20 - Fall break - HW2 is due, HW3 is released (auth is the only "new" thing in HW3, but there are some twists as well)
+  - Week of 10/27 - Midterm In-person Assessments (IPAs) - signup sheet will be available by 10/16, 15 minute slots, we will look at your submitted HW code and ask you questions about it
+:::
 
 ## Unit testing tests one layer alone
 
