@@ -31,6 +31,10 @@ in this site's repository.
 - [Lecture Notes](/weeks/week04-rest/week04-notes)
 - [Post-class memo: the last NYT exercise, and a bug!](/weeks/week04-rest/post-class-memo)
 
+### Week 5 - REST in Review | Testing (Unit & E2E)
+
+- [Lecture Notes](/weeks/week05-testing/week05-notes)
+
 ## Assignments
 
 ### HW1 - SliceDrop: Menu and Orders API
