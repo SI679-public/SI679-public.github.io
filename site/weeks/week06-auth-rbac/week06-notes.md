@@ -445,6 +445,9 @@ Lecture code with Now You Try solutions can be found [on GitHub](https://github.
 
 ## Announcements
 
+- Amazing: Everyone turned in Week 5 NYT!!
+- Grading is up to date! If something looks wrong LMK on Slack (preferred) or email
+- HW1 Solution is available on Canvas
 - No class meeting next 2 weeks (Fall Break, then IPAs)
 - IPA signup out later this week
 - HW2 due Monday, Oct 19
