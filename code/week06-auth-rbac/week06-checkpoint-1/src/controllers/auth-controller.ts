@@ -1,7 +1,7 @@
+// #region register
 import type { Request, Response } from 'express';
 import * as authService from '../services/auth-service.js';
 
-// #region register
 export const postRegister = async (
   req: Request,
   res: Response
