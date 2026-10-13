@@ -35,6 +35,10 @@ in this site's repository.
 
 - [Lecture Notes](/weeks/week05-testing/week05-notes)
 
+### Week 6 - Auth
+
+- [Lecture Notes](/weeks/week06-auth-rbac/week06-notes)
+
 ## Assignments
 
 ### HW1 - SliceDrop: Menu and Orders API

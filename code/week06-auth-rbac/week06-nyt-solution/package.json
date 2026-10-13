@@ -1,0 +1,44 @@
+{
+  "name": "week06-nyt-solution",
+  "version": "1.0.0",
+  "description": "SI 679 week 6 \u2014 auth (Now You Try solutions)",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file=.env src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start": "node --env-file=.env dist/index.js",
+    "seed": "tsx src/scripts/seed-staff.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run unit.test --passWithNoTests",
+    "test:e2e": "vitest run e2e.test"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.6.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^22.20.4",
+    "@types/supertest": "^7.2.1",
+    "mongodb-memory-server": "^11.2.0",
+    "supertest": "^7.2.2",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  },
+  "allowScripts": {
+    "esbuild": false,
+    "fsevents": false,
+    "mongodb-memory-server": false
+  },
+  "config": {
+    "mongodbMemoryServer": {
+      "disablePostinstall": "1"
+    }
+  }
+}
