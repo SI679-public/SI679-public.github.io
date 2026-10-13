@@ -172,6 +172,28 @@ authRouter.post('/register', authController.postRegister);
 
 <<< ../../../code/week06-auth-rbac/week06-checkpoint-1/src/app.ts{3,10 ts}
 
+### Get ready to test
+
+Before trying Postman, make sure mongo and your server are running. For Mongo, here are the recipes for your platform (you probably don't need to do `mkdir` again, but you do need a directory that actually exists to give `--dbpath`):
+
+```shell
+# macOS / Linux
+mkdir -p ~/data/mdata
+mongod --dbpath ~/data/mdata
+```
+
+```shell
+# Windows
+mkdir c:\data\mdata
+mongod --dbpath c:\data\mdata
+```
+
+This will take over a terminal, so launch another terminal and run the server with:
+
+```shell
+npm run dev
+```
+
 ### Test in Postman
 
 Create a POST request with a raw/JSON body containing the username and password of your choice:
