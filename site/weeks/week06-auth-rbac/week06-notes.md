@@ -23,8 +23,6 @@ cp .env.example .env
 npm test
 ```
 
-> **TODO —** Classroom 50 accept link, once the assignment exists.
-
 You should see passing tests and ten marked `todo`.
 
 ### What's new in the starter
@@ -434,8 +432,6 @@ Your job: **attack your own tokens.** Finish `describe('GET /auth/me')` in `src/
 **5. `401s for a token whose payload has been edited`** — the interesting one. Make a good token, take it apart, change the username, put it back together *with the original signature*, and check the server notices. The steps are in the comment above the `it.todo`.
 
 **6. `200s with the username for a token from a real login`** — the others test the lock; this one tests the key that login hands out. Register, log in, and use the token you get back.
-
-> **WRITE —** A sentence after #5 so it lands: you could *read* the payload without the secret, and you could *change* it. What you couldn't do was make a signature to match.
 
 ### You're done when...
 
