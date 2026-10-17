@@ -15,7 +15,7 @@ The final project is worth **20%** of your course grade.
 
 | Milestone | Due | What | Points |
 |---|---|---|---|
-| [Proposal](./proposal.md) | Mon 10/26, 11:59 PM | Your idea, your group | 50 |
+| [Proposal](./proposal.md) | Mon 11/2, 11:59 PM | Your idea, your group | 50 |
 | [Checkpoint 1](./checkpoint-1.md) | Mon 11/16, 11:59 PM | Repo set up, one working endpoint with a test, planning docs | 50 |
 | [Checkpoint 2](./checkpoint-2.md) | Mon 11/30, 11:59 PM | Progress | 50 |
 | [Demo](./demo.md) | Tue 12/8, 1:30 PM (in class) | Presentation & live demo | 100 |

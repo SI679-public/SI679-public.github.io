@@ -6,7 +6,7 @@ title: "Final Project — Proposal"
 
 [← Final Project overview](./index.md)
 
-**Due:** Mon 10/26, 11:59 PM
+**Due:** Mon 11/2, 11:59 PM
 
 Your proposal is a first draft of the plan you'll firm up at
 [Checkpoint 1](./checkpoint-1.md). It doesn't have to be polished or
