@@ -49,6 +49,10 @@ in this site's repository.
 
 - [Instructions](/hw/hw2-instructions) (Accept assignment in Canvas or Classroom 50)
 
+### Final Project
+
+- [Overview](/final-project/) - requirements, milestones and due dates, with a page for each milestone
+
 ## Elsewhere
 
 - [Syllabus](https://docs.google.com/document/d/1T0ZgYkgAXwmbRgwLuOJQxT1WGgHZ_tV8t1ThBQc-h38/edit?usp=sharing) - Overview & policies
