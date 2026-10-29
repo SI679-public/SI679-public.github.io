@@ -5,7 +5,7 @@ title: "HW3 — SliceDrop: Real Users, Real Ownership, and a Loyalty Program"
 # HW3 — SliceDrop: Real Users, Real Ownership, and a Loyalty Program
 
 **Due:** See Canvas
-**Covers:** Week 6 (authentication with bcrypt and JWTs, role-based access control, ownership checks)
+**Covers:** Through Week 6 (authentication with bcrypt and JWTs, role-based access control, ownership checks)
 
 ## Overview
 
