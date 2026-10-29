@@ -469,7 +469,7 @@ Lecture code with Now You Try solutions can be found [on GitHub](https://github.
 - No class meeting next 2 weeks (Fall Break, then IPAs)
 - IPA signup out later this week
 - HW2 due Monday, Oct 19
-- HW3 out Tuesday, Oct 20
+- HW3 out Thursday, Oct 29
 
 ## Roles and ownership
 

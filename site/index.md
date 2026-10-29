@@ -49,6 +49,10 @@ in this site's repository.
 
 - [Instructions](/hw/hw2-instructions) (Accept assignment in Canvas or Classroom 50)
 
+### HW3 - SliceDrop: Real Users, Real Ownership, and a Loyalty Program
+
+- [Instructions](/hw/hw3-instructions) (Accept assignment in Canvas or Classroom 50)
+
 ### Final Project
 
 - [Overview](/final-project/) - requirements, milestones and due dates, with a page for each milestone
