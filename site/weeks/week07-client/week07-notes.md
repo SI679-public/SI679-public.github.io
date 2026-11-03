@@ -711,9 +711,12 @@ matter for today, but they're worth thinking about for your final project and be
 ## Announcements
 
 - We enjoyed seeing you all for the midterm IPAs. I know it may have been less enjoyable for you :).
+- HW3 is out now. Due next Monday.
+- HW4 comes out next Tuesday, due 2 weeks later. Last homework (other than final project stuff)!
 - HW2 and midterm grades out soon. As soon as I can find a minute!
-- Only two lectures left: Web Sockets/real time updates and deployment! There are two unscripted class meetings that, by default, will be opportunities for you to talk with José and me about your final projects. We are open to other ideas as well (e.g., talk about AI? AMA?)
-- Also one homework left: sockets and client integration.
+- 2 lectures left!!: Web Sockets/real time updates and deployment!
+  - There are two unscripted class meetings that, by default, will be opportunities for you to talk with José and me about your final projects. We are open to other ideas as well (e.g., talk about AI? AMA?)
+- Final IPA signups: hopefully this week
 
 ## Now You Try
 
