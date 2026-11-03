@@ -39,6 +39,10 @@ in this site's repository.
 
 - [Lecture Notes](/weeks/week06-auth-rbac/week06-notes)
 
+### Week 7 - Connecting a Client | CORS
+
+- [Lecture Notes](/weeks/week07-client/week07-notes)
+
 ## Assignments
 
 ### HW1 - SliceDrop: Menu and Orders API
