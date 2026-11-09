@@ -18,7 +18,9 @@ Everything for this checkpoint is in your [repo](./repo.md).
 ### 1. Your repo, set up
 
 Accept the Classroom50 group assignment (see
-[Your repo](./repo.md#getting-it)) so your group's repo exists.
+[Your repo](./repo.md#getting-it)) so your group's repo exists. Then follow
+the setup steps in its README: Node 22, and `npm install` in both `server/`
+and `client/`.
 
 ### 2. At least one working endpoint, with a test
 
@@ -38,11 +40,14 @@ In the `docs/` folder:
 | **Roles and permissions** — each role, and what it can do | `docs/roles.md` |
 | **Data model** — collections and how they relate | `docs/data-model.md` |
 | **Endpoint table** — method, path, which role(s) can call it | `docs/endpoints.md` |
+| **Real-time plan** — the events you'll send, who sends and receives them, and who may listen | `docs/realtime.md` |
+| **Client plan** — what kind of client, its main screens, and how it connects to your server | `docs/client.md` |
 | **Topic map** — where each [required topic](./index.md#required-topics) will show up in your app | `docs/topic-map.md` |
 | **Scope** — must-have, nice-to-have, stretch; for groups, who owns what | `docs/plan.md` |
 
 Your overview starts from the one in your proposal, updated with our
-feedback. See [Your repo](./repo.md#what-goes-where) for more on each file.
+feedback. Leave `docs/deployment.md` as it is for now; it starts at
+[Checkpoint 2](./checkpoint-2.md). See [Your repo](./repo.md#what-goes-where) for more on each file.
 
 ## How to submit
 

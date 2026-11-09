@@ -25,7 +25,7 @@ The final project is worth **20%** of your course grade.
 ## Required topics
 
 Every project must include all of these. The app is yours; these are how
-we see the course in it.
+we see how the course concepts show up.
 
 - **Data model** with related collections
 - **REST API** endpoints
@@ -43,8 +43,10 @@ reason — but ask before you build around it.
 ## Your repo
 
 Your group works in one repo, created through Classroom50. The starter is
-minimal — you build the app yourself — and includes a `docs/` folder for
-the planning documents the milestones ask for. The README is for running
+minimal — you build the app yourself — but it comes with the packages,
+scripts and configuration we've used in class, in separate `server/` and
+`client/` packages, plus a `docs/` folder for the planning documents the
+milestones ask for. The README is for running
 and using the app; `docs/` is for the plan and the architecture. Details in
 [Your repo](./repo.md).
 
