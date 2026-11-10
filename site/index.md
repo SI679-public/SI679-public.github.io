@@ -43,6 +43,10 @@ in this site's repository.
 
 - [Lecture Notes](/weeks/week07-client/week07-notes)
 
+### Week 8 - Real-Time Updates | Sockets
+
+- [Lecture Notes](/weeks/week08-sockets/week08-notes)
+
 ## Assignments
 
 ### HW1 - SliceDrop: Menu and Orders API
