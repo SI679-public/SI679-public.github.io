@@ -61,6 +61,10 @@ in this site's repository.
 
 - [Instructions](/hw/hw3-instructions) (Accept assignment in Canvas or Classroom 50)
 
+### HW4 - SliceDrop: A Client for Your Server
+
+- [Instructions](/hw/hw4-instructions) (Accept assignment in Canvas or Classroom 50)
+
 ### Final Project
 
 - [Overview](/final-project/) - requirements, milestones and due dates, with a page for each milestone
