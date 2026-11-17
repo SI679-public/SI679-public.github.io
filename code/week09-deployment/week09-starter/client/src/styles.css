@@ -1,0 +1,334 @@
+/* Pico (imported in main.tsx) styles plain HTML elements. This file only
+   adds layout and a few small pieces Pico doesn't have. */
+
+:root {
+  --badge-placed: #b45309;
+  --badge-placed-bg: #fef3c7;
+  --badge-fulfilled: #15803d;
+  --badge-fulfilled-bg: #dcfce7;
+  --badge-out: #b91c1c;
+  --badge-out-bg: #fee2e2;
+  /* Pico redefines --pico-color inside buttons, so keep the page's own
+     text color under a name of our own. */
+  --text: var(--pico-color);
+  --muted: var(--pico-muted-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --badge-placed: #fcd34d;
+    --badge-placed-bg: #45300a;
+    --badge-fulfilled: #86efac;
+    --badge-fulfilled-bg: #0f3a22;
+    --badge-out: #fca5a5;
+    --badge-out-bg: #4a1414;
+  }
+}
+
+/* ---- Page ---- */
+
+#root > header,
+#root > main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+}
+
+#root > header {
+  border-bottom: 1px solid var(--pico-muted-border-color);
+  padding-block: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.brand {
+  font-size: 1.15rem;
+  margin-right: 1rem;
+}
+
+nav button {
+  margin: 0;
+  padding: 0.4rem 0.9rem;
+}
+
+button.tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: var(--muted);
+}
+
+button.tab:hover {
+  color: var(--text);
+}
+
+button.tab.active {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+
+button.tab:focus,
+button.ghost:focus,
+button.link:focus {
+  box-shadow: none;
+}
+
+button.tab:focus-visible,
+button.ghost:focus-visible,
+button.link:focus-visible {
+  outline: 2px solid var(--pico-primary-focus);
+}
+
+button.ghost {
+  background: none;
+  border: 1px solid var(--pico-muted-border-color);
+  color: var(--text);
+}
+
+button.link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  font-size: inherit;
+  color: var(--pico-primary);
+  text-decoration: underline;
+}
+
+.role {
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  background: var(--pico-primary-background);
+  color: var(--pico-primary-inverse);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* ---- Shared bits ---- */
+
+.error {
+  color: var(--badge-out);
+}
+
+.success {
+  color: var(--badge-fulfilled);
+}
+
+.swatch {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  border: 1px solid var(--pico-muted-border-color);
+  margin-right: 0.5rem;
+  vertical-align: -0.1rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge.placed,
+.badge.fulfilled {
+  text-transform: capitalize;
+}
+
+.badge.placed,
+.badge.low {
+  color: var(--badge-placed);
+  background: var(--badge-placed-bg);
+}
+
+.badge.fulfilled {
+  color: var(--badge-fulfilled);
+  background: var(--badge-fulfilled-bg);
+}
+
+.badge.out {
+  color: var(--badge-out);
+  background: var(--badge-out-bg);
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--pico-muted-border-color);
+  padding-top: 0.5rem;
+}
+
+.narrow {
+  max-width: 640px;
+}
+
+.login {
+  max-width: 420px;
+  margin: 2rem auto;
+}
+
+/* ---- Shop ---- */
+
+.shop {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.shop aside {
+  position: sticky;
+  top: 1rem;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.product .swatch {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.product h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.product p {
+  margin-bottom: 0.5rem;
+}
+
+.product .price {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.product button {
+  margin-top: auto;
+  width: 100%;
+  padding-block: 0.5rem;
+}
+
+/* ---- Cart ---- */
+
+.cart ul {
+  padding: 0;
+  margin-bottom: 0.75rem;
+}
+
+.cart li {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  grid-template-areas:
+    'name name name'
+    'qty price remove';
+  gap: 0.25rem 0.75rem;
+  align-items: center;
+  margin-bottom: 0.9rem;
+  font-size: 0.9rem;
+}
+
+.cart .line-name {
+  grid-area: name;
+}
+
+.cart .line-price {
+  grid-area: price;
+}
+
+.cart li button {
+  grid-area: remove;
+}
+
+.cart input {
+  grid-area: qty;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  height: auto;
+}
+
+.cart > button {
+  width: 100%;
+}
+
+/* ---- Orders ---- */
+
+.queue {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.order > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order ul {
+  padding: 0;
+}
+
+.order li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.order > button {
+  width: 100%;
+}
+
+/* ---- Inventory ---- */
+
+td {
+  vertical-align: middle;
+}
+
+.restock {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.restock input {
+  width: 6rem;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  height: auto;
+}
+
+.restock button {
+  margin: 0;
+  padding: 0.25rem 0.9rem;
+}
+
+/* ---- Narrow screens ---- */
+
+@media (max-width: 900px) {
+  .shop,
+  .queue {
+    grid-template-columns: 1fr;
+  }
+
+  .shop aside {
+    position: static;
+  }
+}

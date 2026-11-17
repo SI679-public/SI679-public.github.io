@@ -47,6 +47,10 @@ in this site's repository.
 
 - [Lecture Notes](/weeks/week08-sockets/week08-notes)
 
+### Week 9 - Deployment | Google Cloud, DNS and HTTPS
+
+- [Lecture Notes](/weeks/week09-deployment/week09-notes)
+
 ## Assignments
 
 ### HW1 - SliceDrop: Menu and Orders API
