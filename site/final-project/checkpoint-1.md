@@ -51,9 +51,7 @@ feedback. Leave `docs/deployment.md` as it is for now; it starts at
 
 ## How to submit
 
-Two steps, both before the deadline.
-
-**1. Tag the commit you want us to look at** as `checkpoint-1`, and push the
+**Tag the commit you want us to look at** as `checkpoint-1`, and push the
 tag:
 
 ```bash
@@ -64,8 +62,6 @@ git push origin checkpoint-1
 We'll look at your repo as of that tag, so you can keep working on `main`
 afterward. Make sure the tagged commit is on `main` — if your group works
 in pull requests, merge first, then tag.
-
-**2. Submit on Canvas.** Everyone in the group submits the repo link.
 
 :::details Tagged the wrong commit?
 
